@@ -1,0 +1,17 @@
+extends layout
+
+block content
+
+  div(data-template='products')#content.content
+    div.products
+      .products__wrapper
+        div.products__content
+            ul.products__grid
+              each product in products
+                a(href=`product/${product.id}`)
+                  li
+                    .product__image__wrapper
+                      img(data-src=product.image)
+                    .product__title__price
+                      p= product.title
+                      p= product.price

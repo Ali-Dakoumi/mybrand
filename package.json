@@ -1,21 +1,62 @@
 {
-  "name": "arrivederci",
-  "version": "0.1.0",
-  "private": true,
+  "type": "module",
+  "name": "express-parcel",
+  "version": "1.0.0",
+  "description": "A playground for Express with Parcel.",
+  "author": "Roberto Achar <robertoachar@gmail.com>",
+  "homepage": "https://github.com/robertoachar/express-parcel#readme",
+  "keywords": [
+    "node",
+    "express",
+    "pug"
+  ],
+  "main": "src/index.js",
+  "files": [
+    "src"
+  ],
   "scripts": {
-    "dev": "next dev",
-    "build": "next build",
-    "start": "next start",
-    "lint": "next lint"
+    "bundle": "parcel watch assets/scripts/app.js assets/scripts/new.js --out-dir=src/public",
+    "lint": "eslint src/**/*.js",
+    "build": "vite build --minify -w --outDir src/public",
+    "optimize-images": "imagemin assets/images/* --out-dir=src/public/images && imagemin assets/images/* -o src/public/images --plugin=imagemin-webp --quality=75",
+    "start": "concurrently \"npm run build\" \"nodemon src/index.js\""
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/robertoachar/express-parcel.git"
+  },
+  "bugs": {
+    "url": "https://github.com/robertoachar/express-parcel/issues"
   },
   "dependencies": {
-    "autoprefixer": "10.4.14",
-    "eslint": "8.46.0",
-    "eslint-config-next": "13.4.13",
-    "next": "13.4.13",
-    "postcss": "8.4.27",
-    "react": "18.2.0",
-    "react-dom": "18.2.0",
-    "tailwindcss": "3.3.3"
-  }
+    "axios": "1.4.0",
+    "concurrently": "8.2.0",
+    "express": "4.16.2",
+    "gsap": "3.12.2",
+    "jquery": "3.2.1",
+    "loadash": "1.0.0",
+    "locomotive-scroll": "5.0.0-beta.8",
+    "lodash": "4.17.21",
+    "mime": "3.0.0",
+    "normalize-wheel": "1.0.1",
+    "prefix": "1.0.0",
+    "pug": "2.0.0-rc.4",
+    "split-type": "0.3.3",
+    "vite": "4.4.9"
+  },
+  "devDependencies": {
+    "autoprefixer": "10.4.15",
+    "eslint": "4.13.1",
+    "eslint-config-prettier": "2.9.0",
+    "eslint-import-resolver-webpack": "^0.13.1",
+    "eslint-plugin-prettier": "2.4.0",
+    "nodemon": "1.13.3",
+    "parcel-bundler": "1.2.1",
+    "postcss": "8.4.28",
+    "prettier": "1.9.2",
+    "sass": "1.66.1",
+    "sharp": "0.32.5",
+    "svgo": "3.0.2"
+  },
+  "license": "MIT"
 }

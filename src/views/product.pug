@@ -1,0 +1,15 @@
+extends layout
+
+block content
+
+  div(data-template='product')#content.content
+    div.product
+      .product__wrapper
+        div.product__content
+                  li
+                    .product__image__wrapper
+                    //-   img(data-src=product.image)
+                    .product__title__price
+                      p= product.title
+                      p= product.price
+                      p= product.description
