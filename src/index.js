@@ -31,6 +31,7 @@ app.get('/', async (req, res) => {
 
 app.get('/products', async (req, res) => {
   const products = await fetchFakeProducts()
+  console.log("🚀 ~ file: index.js:34 ~ app.get ~ products:", products)
   res.render('products', { title: 'home!', id: "home", class: "home", products });
 });
 

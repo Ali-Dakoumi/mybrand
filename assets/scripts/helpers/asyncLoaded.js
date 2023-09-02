@@ -2,14 +2,17 @@ import { create, entries } from "lodash";
 import component from "./component";
 
 export default function asyncLoaded (elm) {
-
+    
     let {element} = component({elm})
-
+    
+    
+    
     
     const createObserver = () => {
         oboserver = new window.IntersectionObserver(entries => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
+                    console.log("🚀 ~ file: asyncLoaded.js:5 ~ asyncLoaded ~ asyncLoaded:")
                     if (element.src && !element.classList.contains('loaded')) {
                         element.classList.add('loaded')
                     }

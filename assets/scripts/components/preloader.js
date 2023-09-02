@@ -44,6 +44,7 @@ export default function preloader() {
          length += 1
         const percent =  length /  elements.images.length
          elements.number.innerHTML = `${Math.round(percent * 100)}%`
+         console.log("🚀 ~ file: preloader.js:51 ~ onAssetLoaded ~ onAssetLoaded:")
         if (percent === 1) {
         await  onloaded()
         }
